@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muebles en Melamine la Ponderosa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: white;
+            padding: 10px;
+            text-align: center;
+            position: relative;
+        }
+
+        header img {
+            height: 80px;
+            max-width: 90%;
+            width: auto;
+        }
+
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav ul li a:hover {
+            background-color: #555;
+            color: #fff;
+            padding: 5px;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+            position: absolute;
+            left: 10px;
+            top: 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: 20px;
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .card-content {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .card-title {
+            font-size: 1.5em;
+            margin: 10px 0;
+            color: white;
+            background-color: black;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .card-description {
+            font-size: 1em;
+            color: #333;
+        }
+
+        .whatsapp-container {
+            position: fixed;
+            bottom: 50%;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            transform: translateY(50%);
+        }
+
+        .whatsapp-float {
+            width: 100px;
+            height: 100px;
+        }
+
+        .whatsapp-float img {
+            width: 100%;
+            height: 100%;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 14px;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                width: 90%;
+            }
+
+            .whatsapp-container {
+                width: 100px;
+                height: 100px;
+                right: 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #333;
+            }
+
+            nav ul li {
+                margin: 0;
+                border-bottom: 1px solid #555;
+                text-align: center;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            nav ul.showing {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="logo.png" alt="Logo de la Ponderosa">
+    <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+    <nav>
+        <ul id="menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="closets.html">Closets</a></li>
+            <li><a href="cocinas.html">Cocinas</a></li>
+            <li><a href="muebles_tv.html">Muebles de TV</a></li>
+            <li><a href="dormitorios.html">Dormitorios</a></li>
+            <li><a href="oficinas.html">Muebles de Oficina</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="card">
+        <a href="closets.html"><img src="closet.jpg" alt="Closets"></a>
+        <div class="card-content">
+            <div class="card-title">Closets</div>
+            <p class="card-description">Encuentra los mejores diseños de closets para tu hogar.</p>
+        </div>
+    </div>
+    <div class="card">
+        <a href="cocinas.html"><img src="cocina.jpg" alt="Cocinas"></a>
+        <div class="card-content">
+            <div class="card-title">Cocinas</div>
+            <p class="card-description">Cocinas modernas y funcionales a tu medida.</p>
+        </div>
+    </div>
+    <div class="card">
+        <a href="muebles_tv.html"><img src="tv.jpg" alt="Muebles de TV"></a>
+        <div class="card-content">
+            <div class="card-title">Muebles de TV</div>
+            <p class="card-description">Diseños únicos para tus muebles de entretenimiento.</p>
+        </div>
+    </div>
+    <div class="card">
+        <a href="dormitorios.html"><img src="dormitorio.jpg" alt="Dormitorios"></a>
+        <div class="card-content">
+            <div class="card-title">Dormitorios</div>
+            <p class="card-description">Crea un ambiente acogedor con nuestros muebles de dormitorio.</p>
+        </div>
+    </div>
+    <div class="card">
+        <a href="oficinas.html"><img src="oficina.jpg" alt="Muebles de Oficina"></a>
+        <div class="card-content">
+            <div class="card-title">Muebles de Oficina</div>
+            <p class="card-description">Equipamiento elegante y funcional para tu oficina.</p>
+        </div>
+    </div>
+</div>
+
+<div class="whatsapp-container">
+    <a href="https://wa.me/51963606457" class="whatsapp-float" target="_blank">
+        <img src="whatsapp.png" alt="WhatsApp">
+    </a>
+</div>
+
+<footer>
+    <p>Dirección: Av. Ejemplo 123, Ciudad</p>
+    <p>Teléfono: +51 963 606 457</p>
+</footer>
+
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById('menu');
+        menu.classList.toggle('showing');
+    }
+</script>
+
+</body>
+</html>

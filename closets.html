@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closets a Medida</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: white;
+            padding: 10px;
+            text-align: center;
+            position: relative;
+        }
+
+        header img {
+            height: 100px;
+        }
+
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav ul li a:hover {
+            background-color: #555;
+            color: #fff;
+            padding: 5px;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+            position: absolute;
+            left: 10px;
+            top: 20px;
+        }
+
+        .description {
+            text-align: center;
+            margin: 20px;
+            font-family: 'Verdana', sans-serif;
+        }
+
+        .description h1 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .description p {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 10px 5px;
+        }
+
+        .gallery-item {
+            text-align: center;
+        }
+
+        .gallery img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+
+        .gallery-item p {
+            font-size: 14px;
+            color: #333;
+            margin-top: 5px;
+        }
+
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s, opacity 0.3s ease-in-out;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 8px;
+        }
+
+        .lightbox.visible {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            z-index: 1000;
+            width: 100px;
+            height: 100px;
+            transform: translateY(-50%);
+        }
+
+        .whatsapp-float img {
+            width: 100%;
+            height: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .gallery img {
+                width: 120px;
+                height: 120px;
+            }
+            header img {
+                height: 80px;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #333;
+            }
+
+            nav ul li {
+                margin: 0;
+                border-bottom: 1px solid #555;
+                text-align: center;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            nav ul.showing {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery img {
+                width: 100px;
+                height: 100px;
+            }
+            header img {
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="logo.png" alt="Logo de la Ponderosa">
+    <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+    <nav>
+        <ul id="menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="closets.html">Closets</a></li>
+            <li><a href="cocinas.html">Cocinas</a></li>
+            <li><a href="muebles_tv.html">Muebles de TV</a></li>
+            <li><a href="dormitorios.html">Dormitorios</a></li>
+            <li><a href="oficinas.html">Muebles de Oficina</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="description">
+    <h1>Closets a Medida</h1>
+    <p>Nuestros closets son elaborados a medida con los mejores materiales del mercado, garantizando durabilidad y un acabado excepcional.</p>
+</div>
+
+<div class="gallery">
+    <div class="gallery-item">
+        <img src="closet1.jpg" alt="Closet 1">
+        <p>closet1</p>
+    </div>
+    <div class="gallery-item">
+        <img src="closet2.jpg" alt="Closet 2">
+        <p>closet2</p>
+    </div>
+    <div class="gallery-item">
+        <img src="closet3.jpg" alt="Closet 3">
+        <p>closet3</p>
+    </div>
+    <div class="gallery-item">
+        <img src="closet4.jpg" alt="Closet 4">
+        <p>closet4</p>
+    </div>
+    <div class="gallery-item">
+        <img src="closet5.jpg" alt="Closet 5">
+        <p>closet5</p>
+    </div>
+    <div class="gallery-item">
+        <img src="closet6.jpg" alt="Closet 6">
+        <p>closet6</p>
+    </div>
+    <div class="gallery-item">
+        <img src="closet7.jpg" alt="Closet 7">
+        <p>closet7</p>
+    </div>
+    <div class="gallery-item">
+        <img src="closet8.jpg" alt="Closet 8">
+        <p>closet8</p>
+    </div>
+    <div class="gallery-item">
+        <img src="closet9.jpg" alt="Closet 9">
+        <p>closet9</p>
+    </div>
+    <div class="gallery-item">
+        <img src="closet10.jpg" alt="Closet 10">
+        <p>closet10</p>
+    </div>
+    <div class="gallery-item">
+        <img src="closet1.jpg" alt="Closet 11">
+        <p>closet11</p>
+    </div>
+    <div class="gallery-item">
+        <img src="closet2.jpg" alt="Closet 12">
+        <p>closet12</p>
+    </div>
+</div>
+
+<a href="https://wa.me/51963606457" class="whatsapp-float" target="_blank">
+    <img src="whatsapp.png" alt="WhatsApp">
+</a>
+
+<div class="lightbox" id="lightbox">
+    <button class="close-btn" id="closeBtn">&times;</button>
+    <img src="" alt="Imagen Ampliada">
+</div>
+
+<script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+    const closeBtn = document.getElementById('closeBtn');
+    const galleryImages = document.querySelectorAll('.gallery img');
+
+    galleryImages.forEach(img => {
+        img.addEventListener('click', () => {
+            lightboxImg.src = img.src;
+            lightbox.classList.add('visible');
+        });
+    });
+
+    closeBtn.addEventListener('click', () => {
+        lightbox.classList.remove('visible');
+    });
+
+    lightbox.addEventListener('click', (e) => {
+        if (e.target !== lightboxImg) {
+            lightbox.classList.remove('visible');
+        }
+    });
+
+    function toggleMenu() {
+        const menu = document.getElementById('menu');
+        menu.classList.toggle('showing');
+    }
+</script>
+
+</body>
+</html>
